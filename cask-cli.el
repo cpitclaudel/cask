@@ -40,6 +40,30 @@
 (require 'cask-bootstrap (expand-file-name "cask-bootstrap" cask-directory))
 (require 'cask (expand-file-name "cask" cask-directory))
 
+(require 'package)
+
+(defun my/package--download-and-read-archives (&optional async)
+  "Download descriptions of all `package-archives' and read them.
+This populates `package-archive-contents'.  If ASYNC is non-nil,
+perform the downloads asynchronously."
+  ;; The downloaded archive contents will be read as part of
+  ;; `package--update-downloads-in-progress'.
+  (dolist (archive package-archives)
+    (cl-pushnew archive package--downloads-in-progress
+                :test #'equal))
+  (dolist (archive package-archives)
+    (condition-case-unless-debug err
+        (package--download-one-archive archive "archive-contents" async)
+      (error (message "Failed to download `%s' archive: %S"
+                      (car archive) err)))))
+
+(advice-add 'package--download-and-read-archives
+            :override
+            #'my/package--download-and-read-archives)
+
+(message "Using overridden package code.")
+(prin1 "Using overridden package code.")
+
 (when noninteractive
   (shut-up-silence-emacs))
 
