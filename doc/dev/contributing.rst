@@ -7,7 +7,7 @@ This document provides guidelines and information on contributing to Cask.
 Cask is on Github_, and a discussion group is available at
 https://groups.google.com/forum/#!forum/cask-dev.
 
-.. _github: https://github.com/cask/cask
+.. _github: https://github.com/cpitclaudel/cask
 
 Testing
 =======
@@ -108,4 +108,4 @@ request`_ with your changes.
    pull request should target this branch, if present.  Otherwise just base your
    pull request on `master`.
 
-.. _pull request: https://github.com/cask/cask/pulls
+.. _pull request: https://github.com/cpitclaudel/cask/pulls

@@ -8,7 +8,7 @@
 ;; Maintainer: Johan Andersson <johan.rejeep@gmail.com>
 ;; Version: 0.8.1
 ;; Keywords: speed, convenience
-;; URL: http://github.com/cask/cask
+;; URL: http://github.com/cpitclaudel/cask
 ;; Package-Requires: ((s "1.8.0") (dash "2.2.0") (f "0.16.0") (epl "0.5") (shut-up "0.1.0") (cl-lib "0.3") (package-build "0.1"))
 
 ;; This file is NOT part of GNU Emacs.

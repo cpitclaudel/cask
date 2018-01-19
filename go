@@ -33,8 +33,8 @@ from subprocess import CalledProcessError, check_call
 
 HOME = os.path.expanduser('~')
 TARGET_DIRECTORY = os.path.join(HOME, '.cask')
-REPOSITORY = 'https://github.com/cask/cask.git'
-ISSUE_TRACKER = 'https://github.com/cask/cask/issues'
+REPOSITORY = 'https://github.com/cpitclaudel/cask.git'
+ISSUE_TRACKER = 'https://github.com/cpitclaudel/cask/issues'
 
 
 class CaskGoError(Exception):
@@ -72,7 +72,7 @@ def install_cask(target_directory):
                 target_directory))
     else:
         try:
-            check_call(['git', 'clone', REPOSITORY, target_directory])
+            check_call(['git', 'clone', '-b', 'fix', REPOSITORY, target_directory])
         except CalledProcessError:
             raise CaskGoError('Cask could not be installed. Try again '
                               'later, or report an issue at {0}'.format(
